@@ -7,8 +7,8 @@ import "./Drag.css";
 function Drag({ description }: { description: string }) {
   const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
 
-  const bind = useDrag(({ movement: [mx, my], memo = [x.get(), y.get()] }) => {
-      api.start({ x: memo[0] + mx, y: memo[1] + my });
+  const bind = useDrag(({ movement: [mx, my], memo = [x.get(), y.get()], velocity, direction}) => {
+      api.start({ x: memo[0] + mx, y: memo[1] + my, config: {velocity: scale(direction, velocity)}});
 
     console.log("moved ${description}")
     return memo;
