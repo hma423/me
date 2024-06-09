@@ -1,0 +1,15 @@
+.drag_word{
+    cursor: -webkit-grab;
+    color: darkblue;        
+    display: flex;        
+    align-items: center;   
+    justify-content: center; 
+    touch-action: none;    
+    user-select: none; 
+    will-change: transform;
+
+}
+
+.drag_word:active{
+    cursor: -webkit-grabbing;
+}

@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { animated } from '@react-spring/web'
 import Drag from "./components/Drag.tsx";
+import "./components/Drag.css";
 
 function App() {
 
