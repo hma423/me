@@ -29,7 +29,7 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        "relative h-[40rem] flex items-center bg-white dark:bg-black justify-center w-full group",
+        "relative h-screen w-full flex items-center bg-white dark:bg-black justify-center group",
         containerClassName
       )}
       onMouseMove={handleMouseMove}
@@ -47,9 +47,9 @@ export const HeroHighlight = ({
           `,
           maskImage: useMotionTemplate`
             radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
+              800px circle at ${mouseX}px ${mouseY}px,
+              black 5%,
+              transparent 10%
             )
           `,
         }}

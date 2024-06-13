@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-    <div>
+    {/* <div>
       <h1 className="text-3xl font-bold ">
         Fill in the _____
       </h1>
@@ -21,9 +21,9 @@ function App() {
       </h1>
     </div>
     <Drag description = "drag me around!"/>
-    <Drag description = "welcome to my website"/>
+    <Drag description = "welcome to my website"/> */}
 
-    <HeroHighlight>
+    <HeroHighlight >
       <motion.h1
         initial={{
           opacity: 0,
