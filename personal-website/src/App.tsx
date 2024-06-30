@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LoginScreen from './components/LoginScreen';
 import HomeScreen from './components/HomeScreen';
+import wii_button from "./assets/audio/wii_button.mp3";
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -8,6 +9,7 @@ const App: React.FC = () => {
 
   const handleLogin = () => {
     setFadeOut(true);
+    new Audio(wii_button).play()
     setTimeout(() => setIsLoggedIn(true), 500);
   };
 

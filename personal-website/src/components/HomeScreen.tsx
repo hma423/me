@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import wii_homescreen from "../assets/audio/wii_home_startup.mp3";
+
 
 const HomeScreen: React.FC = () => {
+    const homescreen_delay = 2000; 
+    useEffect(()=> {
+        new Audio (wii_homescreen).play()
+    })
   return (
     <div className="min-h-screen bg-gray-100 text-black">
       <div className="grid grid-cols-5 gap-4 p-4">
