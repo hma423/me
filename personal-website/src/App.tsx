@@ -22,8 +22,23 @@ function App() {
     </div>
     <Drag description = "drag me around!"/>
     <Drag description = "welcome to my website"/> */}
+<div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
+  <div className="text-center">
+    <h1 className="font-sans font-bold text-3xl mb-6 flex items-center justify-center">
+      <span className="mr-2">⚠️</span>
+      WARNING-HEALTH AND SAFETY
+    </h1>
+    <h2 className="text-xl">
+      BEFORE PLAYING, READ YOUR OPERATIONS <br/>
+      MANUAL FOR IMPORTANT INFORMATION <br/>
+      ABOUT YOUR HEALTH AND SAFETY.
+    </h2>
+  </div>
+</div>
 
-    <HeroHighlight >
+
+
+    {/* <HeroHighlight >
       <motion.h1
         initial={{
           opacity: 0,
@@ -45,7 +60,7 @@ function App() {
           copy, of a copy, of a copy.
         </Highlight>
       </motion.h1>
-    </HeroHighlight>
+    </HeroHighlight> */}
     </>
   )
 }

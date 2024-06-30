@@ -9,7 +9,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      // your config here
+      fontFamily: {
+        'sans': ['Arial', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif']
+      }
     },
   },
   plugins: [
@@ -40,3 +42,6 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
+
+
+
