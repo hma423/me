@@ -11,6 +11,15 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Arial', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif']
+      },
+      animation: {
+        pulse: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        pulse: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0 },
+        }
       }
     },
   },
@@ -42,6 +51,3 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
-
-
-

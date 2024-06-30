@@ -1,68 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { animated } from '@react-spring/web'
-import Drag from "./components/Drag.tsx";
-import "./components/Drag.css";
-import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "./components/ui/hero-highlight";
-"use client";
-function App() {
+import React, { useState, useEffect } from 'react';
+import LoginScreen from './components/LoginScreen';
+import HomeScreen from './components/HomeScreen';
+
+const App: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  const handleLogin = () => {
+    setFadeOut(true);
+    setTimeout(() => setIsLoggedIn(true), 500);
+  };
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() === 'a' && !isLoggedIn) {
+        handleLogin();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [isLoggedIn]);
 
   return (
-    <>
-    {/* <div>
-      <h1 className="text-3xl font-bold ">
-        Fill in the _____
-      </h1>
-      <h1 className = "text-3xl ">
-        My name is Henry Ma
-      </h1>
-    </div>
-    <Drag description = "drag me around!"/>
-    <Drag description = "welcome to my website"/> */}
-<div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
-  <div className="text-center">
-    <h1 className="font-sans font-bold text-3xl mb-6 flex items-center justify-center">
-      <span className="mr-2">⚠️</span>
-      WARNING-HEALTH AND SAFETY
-    </h1>
-    <h2 className="text-xl">
-      BEFORE PLAYING, READ YOUR OPERATIONS <br/>
-      MANUAL FOR IMPORTANT INFORMATION <br/>
-      ABOUT YOUR HEALTH AND SAFETY.
-    </h2>
-  </div>
-</div>
-
-
-
-    {/* <HeroHighlight >
-      <motion.h1
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: [20, -5, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.4, 0.0, 0.2, 1],
-        }}
-        className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+    <div className="relative">
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${
+          fadeOut ? 'opacity-0' : 'opacity-100'
+        }`}
       >
-        With insomnia, nothing&apos;s real. Everything is far away. Everything
-        is a{" "}
-        <Highlight className="text-black dark:text-white">
-          copy, of a copy, of a copy.
-        </Highlight>
-      </motion.h1>
-    </HeroHighlight> */}
-    </>
-  )
-}
+        <LoginScreen onLogin={handleLogin} />
+      </div>
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${
+          isLoggedIn ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <HomeScreen />
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;
