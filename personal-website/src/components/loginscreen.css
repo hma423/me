@@ -1,0 +1,7 @@
+.wii-menu {
+    width: 80%; /* Adjust width as needed */
+    height: 800px;
+    margin: auto; /* Center the menu horizontally */
+    justify-content: center;
+
+  }

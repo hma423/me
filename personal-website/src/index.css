@@ -54,6 +54,3 @@ h1 {
   }
 } */
 
-body {
-  @apply bg-black text-white;
-}
